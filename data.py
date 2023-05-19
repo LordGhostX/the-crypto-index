@@ -5,7 +5,7 @@ import plotly.graph_objects as go
 
 def compile_data():
     data = list()
-    coins = ["BTC", "ETH", "BNB", "NEO", "LTC"]#, "ADA", "XRP", "EOS", "TRX", "ETC"]
+    coins = ["BTC", "ETH", "BNB", "NEO", "LTC", "ADA", "XRP", "EOS", "TRX", "ETC"]
     for coin in coins:
         df = pd.read_csv(f"data/{coin}USDT_1D.csv")
         data.append((coin, df))
@@ -24,7 +24,7 @@ def compute_harmonic_mean(df):
     reciprocal_df.replace([np.inf, -np.inf], np.nan, inplace=True)
     harmonic_mean = list()
     for index, row in reciprocal_df.iterrows():
-        harmonic_mean.append(5 / sum(row))
+        harmonic_mean.append(10 / sum(row))
     return harmonic_mean
 
 def compute_index(timestamp, open, high, low, close):
